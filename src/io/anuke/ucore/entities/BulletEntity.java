@@ -13,8 +13,6 @@ public abstract class BulletEntity extends SolidEntity implements Damager{
 	/**-1 to use type's damage.*/
 	public int damage = -1;
 	
-	public BulletEntity(){}
-	
 	public BulletEntity(BaseBulletType type, Entity owner, float angle){
 		this.type = type;
 		this.owner = owner;

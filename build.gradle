@@ -20,6 +20,12 @@ ext {
 	gdxVersion = '1.9.8'
 }
 
+
+allprojects {
+    apply plugin: "eclipse"
+    apply plugin: "idea"
+}
+
 task sourcesJar(type: Jar, dependsOn: classes) {
     classifier = 'sources'
     from sourceSets.main.allSource

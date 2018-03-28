@@ -5,6 +5,8 @@ import io.anuke.ucore.util.Mathf;
 
 public abstract class Entity{
 	private static int lastid;
+
+	public int dimension;
 	
 	protected transient EntityGroup<?> group;
 
