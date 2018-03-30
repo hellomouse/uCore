@@ -47,6 +47,7 @@ public class ProjectileTrait extends Trait{
 		public float lifetime = 100;
 		public float speed = 1f;
 		public int damage = 1;
+		public int dimension = 0;
 		public float hitsize = 4;
 		public Effect hiteffect = null, despawneffect = null;
 		protected Vector2 vector = new Vector2();
@@ -58,12 +59,12 @@ public class ProjectileTrait extends Trait{
 		
 		public void removed(Spark spark){
 			if(hiteffect != null)
-				Effects.effect(hiteffect, spark);
+				Effects.effect(hiteffect, spark, dimension);
 		}
 		
 		public void despawned(Spark spark){
 			if(despawneffect != null)
-				Effects.effect(despawneffect, spark);
+				Effects.effect(despawneffect, spark, dimension);
 		}
 	}
 }

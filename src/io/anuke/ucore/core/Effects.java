@@ -15,7 +15,7 @@ import io.anuke.ucore.util.Mathf;
 
 public class Effects{
 	private static Array<Effect> effects = new Array<>();
-	private static EffectProvider provider = (name, color, x, y, rotation) -> new EffectEntity(name, color, rotation).set(x, y).add();
+	private static EffectProvider provider = (name, color, x, y, rotation, dimension) -> new EffectEntity(name, color, rotation, dimension).set(x, y).add();
 	private static BiConsumer<Float, Float> shakeProvider;
 	private static final EffectContainer container = new EffectContainer();
 	private static float shakeFalloff = 1000f;
@@ -39,28 +39,28 @@ public class Effects{
 		return effects.get(id);
 	}
 	
-	public static void effect(Effect effect, float x, float y, float rotation){
-		provider.createEffect(effect, Color.WHITE, x, y, rotation);
+	public static void effect(Effect effect, float x, float y, float rotation, int dimension){
+		provider.createEffect(effect, Color.WHITE, x, y, rotation, dimension);
 	}
 	
-	public static void effect(Effect effect, float x, float y){
-		effect(effect, x, y, 0);
+	public static void effect(Effect effect, float x, float y, int dimension){
+		effect(effect, x, y, 0, dimension);
 	}
 	
-	public static void effect(Effect effect, Entity pos){
-		effect(effect, pos.x, pos.y);
+	public static void effect(Effect effect, Entity pos, int dimension){
+		effect(effect, pos.x, pos.y, dimension);
 	}
 	
-	public static void effect(Effect effect, Spark pos){
-		effect(effect, pos.pos().x, pos.pos().y);
+	public static void effect(Effect effect, Spark pos, int dimension){
+		effect(effect, pos.pos().x, pos.pos().y, dimension);
 	}
 	
-	public static void effect(Effect effect, Color color, float x, float y){
-		provider.createEffect(effect, color, x, y, 0f);
+	public static void effect(Effect effect, Color color, float x, float y, int dimension){
+		provider.createEffect(effect, color, x, y, 0f, dimension);
 	}
 	
-	public static void effect(Effect effect, Color color, Entity entity){
-		effect(effect, color, entity.x, entity.y);
+	public static void effect(Effect effect, Color color, Entity entity, int dimension){
+		effect(effect, color, entity.x, entity.y, dimension);
 	}
 	
 	public static void sound(String name){

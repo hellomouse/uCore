@@ -31,7 +31,7 @@ public abstract class BaseBulletType<T extends BulletEntity>{
 
 	public void hit(T b, float hitx, float hity){
 		if(hiteffect != null)
-			Effects.effect(hiteffect, b.x, b.y, b.angle());
+			Effects.effect(hiteffect, b.x, b.y, b.angle(), b.dimension);
 	}
 
 	public void hit(T b){
@@ -40,7 +40,7 @@ public abstract class BaseBulletType<T extends BulletEntity>{
 
 	public void despawned(T b){
 		if(despawneffect != null)
-			Effects.effect(despawneffect, b.x, b.y, b.angle());
+			Effects.effect(despawneffect, b.x, b.y, b.angle(), b.dimension);
 	}
 
 	public static <T extends BaseBulletType<?>> T getByID(int id){

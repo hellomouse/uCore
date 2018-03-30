@@ -5,7 +5,7 @@ import io.anuke.ucore.util.Mathf;
 public abstract class DestructibleEntity extends SolidEntity{
 	public transient int maxhealth;
 	public transient boolean dead;
-	public int health;
+	public float health;
 	
 	public void onHit(SolidEntity entity){}
 	public void onDeath(){}
@@ -27,7 +27,7 @@ public abstract class DestructibleEntity extends SolidEntity{
 		}
 	}
 	
-	public void damage(int amount){
+	public void damage(float amount){
 		health -= amount;
 		if(health <= 0 && !dead){
 			onDeath();
