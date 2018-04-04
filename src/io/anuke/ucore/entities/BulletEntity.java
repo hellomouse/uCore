@@ -67,7 +67,7 @@ public abstract class BulletEntity extends SolidEntity implements Damager{
 	
 	@Override
 	public void collision(SolidEntity other, float x, float y){
-		remove();
+		if(!type.pierce) remove();
 		type.hit(this, x, y);
 	}
 	
