@@ -11,12 +11,6 @@ public class EffectEntity extends TimedEntity{
 	public float rotation = 0f;
 	public int dimension;
 	
-	public EffectEntity(float lifetime, Effect rend, int dimension){
-		renderer = rend;
-		this.lifetime = lifetime;
-		this.dimension = dimension;
-	}
-	
 	public EffectEntity(Effect effect, int dimension){
 		renderer = effect;
 		lifetime = effect.lifetime;

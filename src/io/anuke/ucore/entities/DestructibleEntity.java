@@ -7,9 +7,10 @@ import java.util.Map;
 
 
 public abstract class DestructibleEntity extends SolidEntity{
-	public transient int maxhealth;
+	public transient float maxhealth;
 	public transient boolean dead;
 	public float health;
+
 	public Map<DamageType,Float> damageTypeDamageModifier = new HashMap<DamageType,Float>(){{
 		put(DamageType.None,1f);
 	}};
@@ -51,7 +52,7 @@ public abstract class DestructibleEntity extends SolidEntity{
 		}
 	}
 	
-	public void setMaxHealth(int health){
+	public void setMaxHealth(float health){
 		maxhealth = health;
 		heal();
 	}
