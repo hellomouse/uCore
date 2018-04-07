@@ -40,7 +40,6 @@ public class Effects{
 	}
 	
 	public static void effect(Effect effect, float x, float y, float rotation, int dimension){
-		System.out.println("effect created");
 		provider.createEffect(effect, Color.WHITE, x, y, rotation, dimension);
 	}
 	
@@ -48,8 +47,8 @@ public class Effects{
 		effect(effect, x, y, 0, dimension);
 	}
 	
-	public static void effect(Effect effect, Entity pos, int dimension){
-		effect(effect, pos.x, pos.y, dimension);
+	public static void effect(Effect effect, Entity pos){
+		effect(effect, pos.x, pos.y, pos.dimension);
 	}
 	
 	public static void effect(Effect effect, Spark pos, int dimension){
@@ -57,7 +56,6 @@ public class Effects{
 	}
 	
 	public static void effect(Effect effect, Color color, float x, float y, int dimension){
-		System.out.println("effect created");
 		provider.createEffect(effect, color, x, y, 0f, dimension);
 	}
 	
