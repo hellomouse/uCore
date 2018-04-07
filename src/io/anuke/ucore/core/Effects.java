@@ -40,6 +40,7 @@ public class Effects{
 	}
 	
 	public static void effect(Effect effect, float x, float y, float rotation, int dimension){
+		System.out.println("effect created");
 		provider.createEffect(effect, Color.WHITE, x, y, rotation, dimension);
 	}
 	
@@ -56,6 +57,7 @@ public class Effects{
 	}
 	
 	public static void effect(Effect effect, Color color, float x, float y, int dimension){
+		System.out.println("effect created");
 		provider.createEffect(effect, color, x, y, 0f, dimension);
 	}
 	

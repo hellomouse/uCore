@@ -2,10 +2,17 @@ package io.anuke.ucore.entities;
 
 import io.anuke.ucore.util.Mathf;
 
+import java.util.HashMap;
+import java.util.Map;
+
+
 public abstract class DestructibleEntity extends SolidEntity{
 	public transient int maxhealth;
 	public transient boolean dead;
 	public float health;
+	public Map<DamageType,Float> damageTypeDamageModifier = new HashMap<DamageType,Float>(){{
+		put(DamageType.None,1f);
+	}};
 	
 	public void onHit(SolidEntity entity){}
 	public void onDeath(){}
@@ -23,7 +30,16 @@ public abstract class DestructibleEntity extends SolidEntity{
 	public void collision(SolidEntity other, float x, float y){
 		if(other instanceof Damager){
 			onHit(other);
-			damage(((Damager)other).getDamage());
+			Damager dam =(Damager) other;
+			damage(dam.getDamage(),dam.type);
+		}
+	}
+
+	public void damage(float amount, DamageType damageType){
+		health -= (amount*damageTypeDamageModifier.getOrDefault(damageType,1f));
+		if(health <= 0 && !dead){
+			onDeath();
+			dead = true;
 		}
 	}
 	
