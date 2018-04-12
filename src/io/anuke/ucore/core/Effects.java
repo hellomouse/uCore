@@ -59,8 +59,8 @@ public class Effects{
 		provider.createEffect(effect, color, x, y, 0f, dimension);
 	}
 
-	public static void effect(Effect effect, Color color, float x, float y, float rotation){
-		provider.createEffect(effect, color, x, y, rotation);
+	public static void effect(Effect effect, Color color, float x, float y, float rotation, int dimension){
+		provider.createEffect(effect, color, x, y, rotation, dimension);
 	}
 	
 	public static void effect(Effect effect, Color color, Entity entity, int dimension){
