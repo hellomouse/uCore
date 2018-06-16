@@ -18,9 +18,10 @@ public class EffectEntity extends TimedEntity{
 	}
 	
 	public EffectEntity(Effect effect, Color color, float rotation, int dimension){
-		this(effect,dimension);
+		this(effect, dimension);
 		this.color = color;
 		this.rotation = rotation;
+		this.dimension = dimension;
 	}
 	
 	@Override

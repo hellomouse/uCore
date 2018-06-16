@@ -1,6 +1,7 @@
 package io.anuke.ucore.core;
 
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.math.Interpolation;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
 import io.anuke.ucore.entities.EffectEntity;
@@ -46,13 +47,13 @@ public class Effects{
 	public static void effect(Effect effect, float x, float y, int dimension){
 		effect(effect, x, y, 0, dimension);
 	}
-	
-	public static void effect(Effect effect, Entity pos){
-		effect(effect, pos.x, pos.y, pos.dimension);
-	}
-	
+
 	public static void effect(Effect effect, Color color, float x, float y, int dimension){
 		provider.createEffect(effect, color, x, y, 0f, dimension);
+	}
+
+	public static void effect(Effect effect, Position loc, int dimension){
+		provider.createEffect(effect, Color.WHITE, loc.getX(), loc.getY(), 0f, dimension);
 	}
 
 	public static void effect(Effect effect, Color color, float x, float y, float rotation, int dimension){
@@ -143,6 +144,11 @@ public class Effects{
 		@Override
 		public float fin() {
 			return time/lifetime;
+		}
+
+
+		public float powfin() {
+			return Interpolation.pow3Out.apply(fin());
 		}
 	}
 	

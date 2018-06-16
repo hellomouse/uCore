@@ -1,6 +1,6 @@
 package io.anuke.ucore.entities;
 
 public interface Damager{
-	DamageType type = DamageType.None;
+	DamageType type = DamageType.none;
 	int getDamage();
 }

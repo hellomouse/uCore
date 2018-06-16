@@ -14,7 +14,7 @@ public abstract class Entity implements Position{
 	/**Do not modify. Used for network operations.*/
 	public int id;
 	public float x,y;
-	
+
 	public void update(){}
 	public void draw(){}
 	public void drawOver(){}
